@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'none'; connect-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#0c121e">
+  <meta name="description" content="AccessLens inspects local HTML for five common accessibility issues and provides pinpointed fixes. No accounts, no uploads.">
+  <title>AccessLens | Find the barriers before publishing</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="analyzer.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand" aria-label="AccessLens home">
+        <div class="brand-symbol" aria-hidden="true"><span></span></div>
+        <span>Access<span class="accent">Lens</span></span>
+      </div>
+      <div class="top-actions">
+        <span class="privacy-pill"><span class="dot" aria-hidden="true"></span> Browser-local · no account</span>
+        <a class="doc-link" href="tests/run-tests.html">Run checks <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span class="tiny-line" aria-hidden="true"></span> ACCESSIBILITY, WITHOUT THE GUESSWORK <span class="hero-version">/ 01</span></div>
+        <h1 id="hero-title">See the barriers.<br><em>Ship the better page.</em></h1>
+        <p class="hero-copy">A focused HTML inspector for the details that are easy to miss. Five practical checks, precise examples, and no made-up compliance score.</p>
+        <div class="hero-chips" aria-label="Checks available"><span>Image alternatives</span><span>Link names</span><span>Form labels</span><span>Unique IDs</span><span>Headings</span></div>
+      </section>
+
+      <div class="section-head">
+        <div><div class="section-kicker">THE WORKBENCH</div><h2>Inspect a page</h2></div>
+        <div class="workflow">01 Load <span>→</span> 02 Inspect <span>→</span> 03 Improve</div>
+      </div>
+
+      <div class="workspace">
+        <section class="panel input-panel" aria-labelledby="input-title">
+          <div class="panel-top"><div><span class="panel-index">01 / INPUT</span><h3 id="input-title">Your HTML</h3></div><span class="subtle">Only on this device</span></div>
+          <div class="example-controls"><button type="button" class="button ghost" id="loadFlawed">Load flawed example</button><button type="button" class="button ghost" id="loadCorrected">Load corrected example</button></div>
+          <label class="file-input" for="fileInput"><span aria-hidden="true">↥</span> Choose a local .html file <small>or paste below</small></label>
+          <input id="fileInput" class="visually-hidden" type="file" accept=".html,.htm,text/html">
+          <div class="editor-top"><label for="htmlInput">HTML SOURCE</label><span id="charCount">0 characters</span></div>
+          <textarea id="htmlInput" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="<!doctype html>&#10;<html lang=&#34;en&#34;>&#10;  <main>..." aria-describedby="inputHelp"></textarea>
+          <p id="inputHelp" class="micro">Pasted HTML is parsed, never executed or shown as a live page.</p>
+          <div class="input-bottom"><button type="button" id="analyzeButton" class="button primary">Inspect HTML <span aria-hidden="true">↗</span></button><button type="button" id="clearButton" class="button ghost">Clear</button></div>
+          <p role="alert" class="error" id="errorText" hidden></p>
+        </section>
+
+        <section class="panel results-panel" aria-labelledby="results-title">
+          <div class="panel-top"><div><span class="panel-index">02 / FINDINGS</span><h3 id="results-title">Inspection results</h3></div><span class="result-state" id="resultState">Not inspected</span></div>
+          <div class="result-intro" id="introText">Run an inspection to see what needs attention. Start with the flawed example to see AccessLens in action.</div>
+          <div class="metrics" aria-label="Inspection findings grouped by priority">
+            <div class="metric"><span class="metric-name">HIGH PRIORITY</span><strong id="highCount">–</strong><span>Likely barriers</span></div>
+            <div class="metric"><span class="metric-name">MEDIUM</span><strong id="mediumCount">–</strong><span>Markup conflicts</span></div>
+            <div class="metric"><span class="metric-name">REVIEW</span><strong id="reviewCount">–</strong><span>Outline checks</span></div>
+          </div>
+          <div class="results-toolbar"><span class="panel-index" id="findingHeader">FINDINGS / —</span><label for="priorityFilter">Show <select id="priorityFilter"><option value="all">All findings</option><option value="high">High priority</option><option value="medium">Medium</option><option value="review">Review</option></select></label></div>
+          <div id="findings" class="findings" aria-live="polite" aria-relevant="additions text"><div class="empty-state"><div class="empty-icon" aria-hidden="true">⌕</div> Your findings will appear here.<span>Each includes the element, reason, and copy-ready repair.</span></div></div>
+          <div class="export-bar"><button type="button" class="button secondary" id="exportReport" disabled>Export report .md <span aria-hidden="true">↓</span></button><button type="button" class="button ghost" id="copyReport" disabled>Copy report</button></div>
+        </section>
+      </div>
+      <div class="after-workspace"><div><strong>No magic number.</strong> Fixes are tied to the specific checks, not a fake overall accessibility rating.</div><div><strong>Safe by design.</strong> Your source stays in this browser; inspection never edits your original file.</div></div>
+      <section class="about" aria-labelledby="about-title"><div><span class="section-kicker">KNOW THE LIMITS</span><h2 id="about-title">A useful first pass.<br><em>Not a certificate.</em></h2></div><p>AccessLens uses five static HTML heuristics. It cannot judge meaningful alternative text, keyboard interaction, screen-reader usability, color contrast, dynamic content, or WCAG conformance. Review suggestions in context and test with real people and assistive technology.</p></section>
+    </main>
+    <footer><span>ACCESSLENS <span class="footer-muted">/ AN ORIGINAL SHANX PROOF OF CONCEPT</span></span><span>Local-first · 5 checks · No scoring</span></footer>
+  </div>
+</body>
+</html>

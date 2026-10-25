@@ -1,0 +1,27 @@
+PASS · Missing image alt is detected
+PASS · Decorative empty alt is accepted
+PASS · Empty link is detected
+PASS · Link with text is accepted
+PASS · Image-only link with nonempty alt has a name
+PASS · Empty aria-label does not count as name
+PASS · ARIA labelled-by existing text counts
+PASS · Input placeholder alone is not label
+PASS · Explicit form label counts
+PASS · Implicit form label counts
+PASS · ARIA label on form field counts
+PASS · Hidden input is skipped
+PASS · Duplicate id is detected only on second occurrence
+PASS · Unique ids are accepted
+PASS · Heading jump h1 to h3 is flagged for review
+PASS · Progressive h1/h2/h3 outline is accepted
+PASS · First h2 is marked for review
+PASS · No fake overall score
+PASS · Markdown export includes original issue and recommendation
+PASS · HTML markup remains literal data when analyzed
+PASS · Empty input shows actionable validation error
+PASS · Plain text shows actionable validation error
+PASS · Oversize content shows actionable validation error
+PASS · Non-string input is rejected
+24/24 tests passed (Node DOM test double)
+PASS fixture flawed: 5 findings (3 high, 1 medium, 1 review)
+PASS fixture corrected: 0 findings

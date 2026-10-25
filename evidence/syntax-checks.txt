@@ -1,0 +1,2 @@
+JavaScript syntax checks: PASS (analyzer.js, app.js, tests/tests.js, tests/node-tests.cjs)
+Python syntax checks: PASS (dom_bridge.py, e2e_playwright.py)
